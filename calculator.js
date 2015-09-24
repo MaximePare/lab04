@@ -118,8 +118,88 @@ var Calculator = function () {
     }
 }
 
+
 $(document).ready (function(){
+    var calculatrice = new Calculator();
+
+    $("#C").click(function(){
+       calculatrice.clear;
+        $(".affichage").html(0);
+    });
+
+    $("#0").click(function(){
+        calculatrice.value(0);
+
+    })
+
+    $("#1").click(function(){
+        calculatrice.value(1);
 
 
+    })
+
+    $("#2").click(function(){
+        calculatrice.value(2);
+
+    })
+
+    $("#3").click(function(){
+        calculatrice.value(3);
+
+    })
+
+    $("#4").click(function(){
+        calculatrice.value(4);
+
+    })
+
+    $("#5").click(function(){
+        calculatrice.value(5);
+
+    })
+
+    $("#6").click(function(){
+        calculatrice.value(6);
+
+    })
+
+    $("#7").click(function(){
+        calculatrice.value(7);
+
+    })
+
+    $("#8").click(function(){
+        calculatrice.value(8);
+
+    })
+
+    $("#9").click(function(){
+        calculatrice.value(9);
+    })
+
+    $("#additionne").click(function(){
+        calculatrice.add();
+    })
+
+    $("#soustrait").click(function(){
+        calculatrice.subtract();
+    })
+
+    $("#multiplie").click(function(){
+        calculatrice.multiply();
+    })
+
+    $("#divise").click(function(){
+        calculatrice.divide();
+    })
+
+    $("#factorial").click(function(){
+        calculatrice.factorial();
+    })
+
+    $("#egale").click(function(){
+        var resultat = calculatrice.equals();
+        $(".affichage").html(resultat);
+    })
 });
 
