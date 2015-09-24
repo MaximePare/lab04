@@ -1,0 +1,52 @@
+.frameCalculatrice{
+    width:200px;
+    height: 260px;
+    background-color: gray;
+    margin: auto;
+    padding-top: 10px;
+    margin-top: 40px;
+}
+
+.affichage{
+    background-color: white;
+    width: 175px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    text-align: right;
+    border-style: groove;
+    border-width: 5px;
+    border-color: black;
+    padding-right: 3px;
+}
+
+.cadreBouton{
+    width: 180px;
+    height: 200px;
+    margin: auto;
+}
+
+.boutonCalcul{
+    display: inline-block;
+    width:26px;
+    height: 14px;
+    text-align: center;
+    padding-bottom: 5px;
+    margin-left: 7px;
+    border-style:groove;
+    border-width: 3px;
+    background-color: darkgray;
+}
+
+.ligneDeBouton{
+    padding-top: 12px;
+    padding-left: 7px;
+}
+
+.boutonCalcul:hover{
+    background-color: lightgray;
+}
+
+.boutonCalcul:active{
+    border-style: ridge;
+}
