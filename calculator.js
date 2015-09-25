@@ -208,7 +208,7 @@ $(document).ready (function(){
     });
 
     $("#factorial").click(function(){
-        $(".affichage").html(calculatrice.getEquation())
+        $(".affichage").html(calculatrice.getEquation());
         $(".affichage").html(calculatrice.factorial());
     });
 
@@ -216,6 +216,24 @@ $(document).ready (function(){
         var resultat = calculatrice.equals();
         $(".affichage").html(resultat);
         calculatrice.value(resultat);
+    });
+
+    $("#Sin").click(function(){
+        var valeur = calculatrice.equals();
+        var reponse = calculatrice.sin(valeur);
+        $(".affichage").html(reponse);
+    });
+
+    $("#Cos").click(function(){
+        var valeur = calculatrice.equals();
+        var reponse = calculatrice.cos(valeur);
+        $(".affichage").html(reponse);
+    });
+
+    $("#Tan").click(function(){
+        var valeur = calculatrice.equals();
+        var reponse = calculatrice.tan(valeur);
+        $(".affichage").html(reponse);
     });
 
     var memoire = false;
