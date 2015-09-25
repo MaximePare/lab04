@@ -34,6 +34,9 @@ var Calculator = function () {
         }
         return this;
     };
+    this.decimal = function(value) {
+        equation += ".";
+    }
 
     // R�initialiser l'�quation
     this.clear = function() {
@@ -86,7 +89,7 @@ var Calculator = function () {
         return this;
     };
 
-    this.tan = function() {
+    this.tan = function(value) {
         equation += 'Math.tan(' + parseFloat(value) + ')';
         return this;
     };
@@ -113,8 +116,16 @@ var Calculator = function () {
         // C'est pourquoi toutes nos variables 'value' sont pass�es dans 'parseFloat'
         console.log('Evaluating :', equation);
         var equationSolution = eval(equation);
+        if(equationSolution == "Infinity"){
+            var divisionZero = "WHAT???"
+            return divisionZero;
+        }
         equation = '';
-        return equationSolution;
+        var resultTrunc = equationSolution.toPrecision(10);
+        if(resultTrunc % 1 == 0){
+            resultTrunc = Math.round(resultTrunc);
+        }
+        return resultTrunc;
     };
 
 
@@ -187,6 +198,11 @@ $(document).ready (function(){
         $(".affichage").html(calculatrice.getEquation);
     });
 
+    $("#virgule").click(function(){
+        calculatrice.decimal('.');
+        $(".affichage").html(calculatrice.getEquation);
+    });
+
     $("#additionne").click(function(){
         calculatrice.add();
         $(".affichage").html(calculatrice.getEquation);
@@ -253,18 +269,19 @@ $(document).ready (function(){
     });
 
 });
-if (navigator.geolocation) {
-    var timeoutVal = 10 * 1000 * 1000;
-    navigator.geolocation.getCurrentPosition(
-        displayPosition,
-        displayError,
-        { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
-    );
+function geoloclisation() {
+    if (navigator.geolocation) {
+        var timeoutVal = 10 * 1000 * 1000;
+        navigator.geolocation.getCurrentPosition(
+            displayPosition,
+            displayError,
+            {enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0}
+        );
+    }
+    else {
+        alert("Geolocation is not supported by this browser");
+    }
 }
-else {
-    alert("Geolocation is not supported by this browser");
-}
-
 function displayPosition(position) {
     document.getElementById("position").innerHTML = "Latitude: " + position.coords.latitude + "&nbsp Longitude: " + position.coords.longitude;
 }

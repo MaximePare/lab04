@@ -47,12 +47,17 @@
     background-color: darkgray;
 }
 
+.boutonCalcul.boutonCalculBig{
+    width: 47px;
+}
+
 .ligneDeBouton {
     padding-top: 12px;
 }
 
 .boutonCalcul:hover {
     background-color: lightgray;
+    cursor: pointer;
 }
 
 .boutonCalcul:active {
