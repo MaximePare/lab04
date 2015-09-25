@@ -47,7 +47,7 @@
     background-color: darkgray;
 }
 
-.boutonCalcul.boutonCalculBig{
+.boutonCalcul.boutonCalculBig {
     width: 47px;
 }
 
@@ -63,7 +63,8 @@
 .boutonCalcul:active {
     border-style: ridge;
 }
-#position{
+
+#position {
     width: 350px;
     height: auto;
     font-size: 10pt;
@@ -74,4 +75,9 @@
     border-style: groove;
     border-radius: 5px;
     text-align: center;
+}
+
+.boutonCalcul.clickDisable {
+    pointer-events: none;
+
 }
