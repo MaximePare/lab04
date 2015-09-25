@@ -15,7 +15,7 @@ Math.factorial = function(n) {
 };
 
 // Classe Calculator
-// Toutes les méthodes sauf `equals` retournent `this`, ce qui permet de chainer les appels
+// Toutes les mï¿½thodes sauf `equals` retournent `this`, ce qui permet de chainer les appels
 // Ex:
 // var calculator = new Calculator()
 // calculator.add(2).add(3).subtract(2).equals()
@@ -26,8 +26,8 @@ var Calculator = function () {
 
     var equation = '';
 
-    // Ajouter seulement une valeur à l'équation
-    // Sera utile pour lorsque cette classe sera connectée au UI
+    // Ajouter seulement une valeur ï¿½ l'ï¿½quation
+    // Sera utile pour lorsque cette classe sera connectï¿½e au UI
     this.value = function(value) {
         if(typeof value !== 'undefined'){
             equation += parseFloat(value);
@@ -35,7 +35,7 @@ var Calculator = function () {
         return this;
     };
 
-    // Réinitialiser l'équation
+    // Rï¿½initialiser l'ï¿½quation
     this.clear = function() {
         equation = '';
         return this;
@@ -69,7 +69,7 @@ var Calculator = function () {
         equation += '/';
         if(typeof value !== 'undefined'){
             if (value == 0) {
-                throw "Division par zéro!!!";
+                throw "Division par zï¿½ro!!!";
             }
             equation += parseFloat(value);
         }
@@ -109,8 +109,8 @@ var Calculator = function () {
     };
 
     this.equals = function () {
-        // Il faut être très prudent avec eval !!! Eval pourrait permettre d'injecter du code malicieux et l'exécuter
-        // C'est pourquoi toutes nos variables 'value' sont passées dans 'parseFloat'
+        // Il faut ï¿½tre trï¿½s prudent avec eval !!! Eval pourrait permettre d'injecter du code malicieux et l'exï¿½cuter
+        // C'est pourquoi toutes nos variables 'value' sont passï¿½es dans 'parseFloat'
         console.log('Evaluating :', equation);
         var equationSolution = eval(equation);
         equation = '';
@@ -230,10 +230,27 @@ $(document).ready (function(){
 
     });
 
-    $("#egale").click(function(){
-        var resultat = calculatrice.equals();
-        $(".affichage").html(resultat);
-        calculatrice.value(resultat);
-    });
 });
+if (navigator.geolocation) {
+    var timeoutVal = 10 * 1000 * 1000;
+    navigator.geolocation.getCurrentPosition(
+        displayPosition,
+        displayError,
+        { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
+    );
+}
+else {
+    alert("Geolocation is not supported by this browser");
+}
 
+function displayPosition(position) {
+    document.getElementById("position").innerHTML = "Latitude: " + position.coords.latitude + "&nbsp Longitude: " + position.coords.longitude;
+}
+function displayError(error) {
+    var errors = {
+        1: 'Permission denied',
+        2: 'Position unavailable',
+        3: 'Request timeout'
+    };
+    alert("Error: " + errors[error.code]);
+}
