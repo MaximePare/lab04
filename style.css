@@ -59,7 +59,7 @@
     border-style: ridge;
 }
 #position{
-    width: 300px;
+    width: 350px;
     height: auto;
     font-size: 10pt;
     margin: auto;
@@ -68,4 +68,5 @@
     margin-top: 40px;
     border-style: groove;
     border-radius: 5px;
+    text-align: center;
 }

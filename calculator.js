@@ -212,7 +212,11 @@ $(document).ready (function(){
         $(".affichage").html(calculatrice.factorial());
     });
 
-
+    $("#egale").click(function(){
+        var resultat = calculatrice.equals();
+        $(".affichage").html(resultat);
+        calculatrice.value(resultat);
+    });
 
     var memoire = false;
     $("#m").click(function(){
